@@ -64,7 +64,8 @@
   </style>
 </head>
 <body>
-  <h1>💖 Forever With You 💖</h1>
+  <!-- ชื่อและหัวใจรอบชื่อ -->
+  <h1>💖 Beam 💖 &nbsp;💖 June 💖</h1>
 
   <!-- เพลงจากลิงก์ออนไลน์ -->
   <audio id="bgMusic" loop></audio>
@@ -86,7 +87,8 @@
       "IMG20250903161723.webp"
     ];
 
-    const hearts = ["❤️","💖","💕","💘"];
+    // หัวใจลอยรอบชื่อ
+    const hearts = ["💖","❤️","💘","💕"];
 
     function createFloatingItem(content, isImage = true) {
       const item = isImage ? document.createElement("img") : document.createElement("div");
@@ -118,7 +120,6 @@
 
     // พยายามเล่นทันที
     audio.play().catch(() => {
-      // ถ้า autoplay ถูกบล็อก ให้ user คลิกหน้าเว็บครั้งเดียว
       document.body.addEventListener("click", () => {
         audio.play();
       }, { once: true });
