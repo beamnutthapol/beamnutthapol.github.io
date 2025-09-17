@@ -10,6 +10,7 @@
       font-family: 'Comic Sans MS', cursive, sans-serif;
       overflow: hidden;
       padding: 20px;
+      cursor: default;
     }
 
     h1 {
@@ -31,6 +32,8 @@
       opacity: 0;
       animation: fadeIn 3s forwards;
       animation-delay: 10s; /* ขึ้นหลัง 10 วิ */
+      position: relative;
+      z-index: 1;
     }
 
     @keyframes glow {
@@ -50,6 +53,7 @@
       animation-iteration-count: infinite;
       animation-timing-function: ease-in-out;
       animation-fill-mode: forwards;
+      z-index: 0;
     }
 
     @keyframes floatUpAppear {
@@ -62,7 +66,7 @@
 <body>
   <h1>💖 Forever With You 💖</h1>
 
-  <!-- เพลง background muted เริ่มต้น -->
+  <!-- เพลง background เริ่ม muted -->
   <audio id="bgMusic" src="mylove.mp3" loop muted autoplay></audio>
 
   <!-- ข้อความแทนวีดีโอ -->
@@ -108,16 +112,14 @@
     images.forEach(img => createFloatingItem(img, true));
     hearts.forEach(h => createFloatingItem(h, false));
 
-    // ใช้ Web Audio API เปิดเสียงทันที
+    // เล่นเพลงทันทีด้วย Web Audio API
     window.addEventListener('DOMContentLoaded', () => {
       const audio = document.getElementById('bgMusic');
-      
-      // สร้าง AudioContext
+
       const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       const track = audioCtx.createMediaElementSource(audio);
       track.connect(audioCtx.destination);
 
-      // เปิด context และเล่นเพลง
       if (audioCtx.state === 'suspended') {
         audioCtx.resume().then(() => {
           audio.muted = false;
