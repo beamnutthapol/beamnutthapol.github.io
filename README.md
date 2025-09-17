@@ -49,7 +49,13 @@
 
     <!-- รูปของหนูกับแฟน -->
     <img src="WIN_20250823_00_47_30_Pro.jpg" class="float-photo" style="left:40%; animation-delay:0s;">
-    <img src="WIN_20250823_00_47_30_Pro.jpg" class="float-photo" style="left:60%; animation-delay:3s;">
+    <img src="IMG20250908222630.webp" class="float-photo" style="left:60%; animation-delay:3s;">
+    <img src="IMG_20250916_215741_611.webp" class="float-photo" style="left:40%; animation-delay:0s;">
+    <img src="download.png" class="float-photo" style="left:60%; animation-delay:3s;">
+    <img src="IMG_20250901_123521_660.webp" class="float-photo" style="left:40%; animation-delay:0s;">
+    <img src="IMG_20250813_193921_803.webp" class="float-photo" style="left:60%; animation-delay:3s;">
+    <img src="download.png" class="float-photo" style="left:40%; animation-delay:0s;">
+    <img src="download.png" class="float-photo" style="left:60%; animation-delay:3s;">
 
     <!-- อีโมจิหัวใจ -->
     <div class="float-heart" style="left:30%; animation-delay:1s;">❤️</div>
