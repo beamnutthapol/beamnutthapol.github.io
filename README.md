@@ -10,12 +10,14 @@
         font-family: 'Comic Sans MS', cursive, sans-serif;
         overflow: hidden;
       }
+
       h1 {
         font-size: 50px;
         color: white;
         text-shadow: 2px 2px 5px red;
         animation: glow 2s infinite alternate;
       }
+
       @keyframes glow {
         from { text-shadow: 0 0 10px red; }
         to { text-shadow: 0 0 30px yellow; }
@@ -27,14 +29,10 @@
         bottom: 0;
         width: 120px;
         border-radius: 20px;
-        animation-name: floatUp;
+        opacity: 0; /* เริ่มต้นมองไม่เห็น */
+        animation-name: floatUpAppear;
         animation-iteration-count: infinite;
         animation-timing-function: ease-in-out;
-      }
-
-      @keyframes floatUp {
-        0%   { transform: translateY(0) scale(0.8); opacity: 1; }
-        100% { transform: translateY(-600px) scale(1.2); opacity: 0; }
       }
 
       /* อีโมจิลอยขึ้น */
@@ -42,7 +40,17 @@
         position: fixed;
         bottom: 0;
         font-size: 40px;
-        animation: floatUp 5s infinite;
+        opacity: 0; /* เริ่มต้นมองไม่เห็น */
+        animation-name: floatUpAppear;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+
+      /* Animation ให้ลอยขึ้นพร้อมปรากฏ */
+      @keyframes floatUpAppear {
+        0%   { transform: translateY(0) scale(0.8); opacity: 0; }
+        10%  { opacity: 1; }
+        100% { transform: translateY(-600px) scale(1.2); opacity: 0; }
       }
 
       /* คลิปวิดีโอ */
@@ -58,7 +66,7 @@
   <body>
     <h1>💖 Forever With You 💖</h1>
 
-    <!-- รูปของหนูกับแฟน (animation-delay และ left ไม่ซ้ำกัน) -->
+    <!-- รูปของหนูกับแฟน -->
     <img src="WIN_20250823_00_47_30_Pro.jpg" class="float-photo" style="left:10%; animation-delay:0s; animation-duration:6s;">
     <img src="IMG_20250916_215741_611.webp" class="float-photo" style="left:25%; animation-delay:2s; animation-duration:7s;">
     <img src="IMG_20250901_123521_660.webp" class="float-photo" style="left:40%; animation-delay:4s; animation-duration:6.5s;">
@@ -74,7 +82,7 @@
     <div class="float-heart" style="left:55%; animation-delay:3s;">💕</div>
     <div class="float-heart" style="left:75%; animation-delay:4s;">💘</div>
 
-    <!-- คลิปวิดีโอ (ขึ้นหลัง 10 วินาที) -->
+    <!-- คลิปวิดีโอ -->
     <video id="surpriseVideo" width="480" controls>
       <source src="myvideo.mp4" type="video/mp4">
       Your browser does not support the video tag.
