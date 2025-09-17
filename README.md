@@ -52,8 +52,7 @@
   <h1>💖 Forever With You 💖</h1>
 
   <!-- เพลง background -->
-<audio id="bgMusic" src="Diego Gonzalez Thank You For Everything Official Lyric Video.mp3" autoplay loop></audio>
-
+  <audio id="bgMusic" src="Diego%20Gonzalez%20Thank%20You%20For%20Everything%20Official%20Lyric%20Video.mp3" loop muted></audio>
 
   <!-- คลิปวิดีโอ -->
   <video id="surpriseVideo" width="480" controls autoplay muted>
@@ -108,13 +107,16 @@
       const vid = document.getElementById("surpriseVideo");
       vid.style.display = "block";
       vid.muted = false; // เปิดเสียง
-      vid.play().catch(e => console.log("Autoplay ถูกบล็อก:", e));
+      vid.play().catch(e => console.log("Autoplay คลิปถูกบล็อก:", e));
     }, 10000);
 
-    // เล่นเพลง background อีกครั้งถ้าเบราว์เซอร์บล็อก autoplay
-    const music = document.getElementById("bgMusic");
-    music.volume = 0.5; // ปรับเสียง
-    music.play().catch(e => console.log("Autoplay เพลงถูกบล็อก:", e));
+    // เล่นเพลง background แบบ autoplay หลังโหลดหน้า
+    window.addEventListener('DOMContentLoaded', () => {
+      const music = document.getElementById("bgMusic");
+      music.muted = false; // เปิดเสียง
+      music.volume = 0.5;
+      music.play().catch(e => console.log("Autoplay เพลงถูกบล็อก:", e));
+    });
   </script>
 </body>
 </html>
