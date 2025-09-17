@@ -2,23 +2,41 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Hello Page</title>
+    <title>For My Love</title>
     <style>
-      .animated-text {
-        font-size: 40px;
-        font-weight: bold;
-        color: green;
-        animation: moveText 3s linear infinite alternate;
+      body {
+        background: pink;
+        text-align: center;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
       }
-
-      @keyframes moveText {
-        0%   { transform: translateX(0);   color: red;   }
-        50%  { transform: translateX(100px); color: blue; }
-        100% { transform: translateX(0);   color: green; }
+      h1 {
+        font-size: 50px;
+        color: white;
+        text-shadow: 2px 2px 5px red;
+        animation: glow 2s infinite alternate;
+      }
+      @keyframes glow {
+        from { text-shadow: 0 0 10px red; }
+        to { text-shadow: 0 0 30px yellow; }
+      }
+      .heart {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        font-size: 30px;
+        animation: float 5s infinite;
+      }
+      @keyframes float {
+        0%   { transform: translateY(0)   scale(1); opacity: 1; }
+        100% { transform: translateY(-500px) scale(1.5); opacity: 0; }
       }
     </style>
   </head>
   <body>
-    <h1 class="animated-text">Hello Nutthapol Bovaree 🌈✨</h1>
+    <h1>❤️ I Love You Forever ❤️</h1>
+    <div class="heart">💖</div>
+    <div class="heart" style="left:40%; animation-delay:1s;">💕</div>
+    <div class="heart" style="left:60%; animation-delay:2s;">💘</div>
+    <div class="heart" style="left:45%; animation-delay:3s;">💓</div>
   </body>
 </html>
