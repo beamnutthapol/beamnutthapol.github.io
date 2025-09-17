@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -33,7 +33,7 @@
     </style>
   </head>
   <body>
-    <h1>❤️ I Love You Forever ❤️</h1>
+    <h1>💖 You are my sunshine 💖</h1>
     <div class="heart">💖</div>
     <div class="heart" style="left:40%; animation-delay:1s;">💕</div>
     <div class="heart" style="left:60%; animation-delay:2s;">💘</div>
