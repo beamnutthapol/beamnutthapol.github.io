@@ -1,6 +1,4 @@
 <h1>❤️ I Love You Forever ❤️</h1>
-<html>
-<h1>❤️ I Love You Forever ❤️</h1>
 <head>
   <meta charset="utf-8">
   <title>For My Love</title>
