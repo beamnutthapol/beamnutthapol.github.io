@@ -24,7 +24,7 @@
     }
 
     .float-item {
-      position: fixed; /* สำคัญมาก! */
+      position: fixed;
       bottom: 0;
       opacity: 0;
       animation-name: floatUpAppear;
@@ -51,7 +51,8 @@
 <body>
   <h1>💖 Forever With You 💖</h1>
 
-  <video id="surpriseVideo" width="480" controls>
+  <!-- คลิปวิดีโอ -->
+  <video id="surpriseVideo" width="480" controls autoplay muted>
     <source src="VID20250818204341.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -94,17 +95,16 @@
       document.body.appendChild(item);
     }
 
-    // สร้างรูป
+    // สร้างรูปและหัวใจแบบสุ่ม
     images.forEach(img => createFloatingItem(img, true));
-
-    // สร้างหัวใจ
     hearts.forEach(h => createFloatingItem(h, false));
 
-    // คลิปวิดีโอหลัง 10 วิ
+    // คลิปโผล่หลัง 10 วิ พร้อมเล่นเสียง
     setTimeout(() => {
       const vid = document.getElementById("surpriseVideo");
       vid.style.display = "block";
-      vid.play();
+      vid.muted = false; // เปิดเสียง
+      vid.play().catch(e => console.log("Autoplay ถูกบล็อก:", e));
     }, 10000);
   </script>
 </body>
