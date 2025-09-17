@@ -41,7 +41,7 @@
     <h1>💖 Forever with You 💖</h1>
 
     <!-- ใส่รูปของหนูกับแฟน (แทนที่ myphoto.jpg ด้วยไฟล์จริง) -->
-    <img src="myphoto.jpg" class="float" style="animation-delay:0s;">
+    <img src="WIN_20250823_00_47_30_Pro.jpg" class="float" style="animation-delay:0s;">
     <img src="myphoto.jpg" class="float" style="left:40%; animation-delay:2s;">
     <img src="myphoto.jpg" class="float" style="left:60%; animation-delay:4s;">
   </body>
