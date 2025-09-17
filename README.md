@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -10,7 +10,7 @@
       font-family: 'Comic Sans MS', cursive, sans-serif;
       overflow: hidden;
       padding: 20px;
-      cursor: default;
+      cursor: pointer; /* ให้ user คลิก anywhere */
     }
 
     h1 {
@@ -66,8 +66,8 @@
 <body>
   <h1>💖 Forever With You 💖</h1>
 
-  <!-- เพลง background เริ่ม muted -->
-  <audio id="bgMusic" src="mylove.mp3" loop muted autoplay></audio>
+  <!-- เพลง background muted เริ่มต้น -->
+  <audio id="bgMusic" src="mylove.mp3" loop muted></audio>
 
   <!-- ข้อความแทนวีดีโอ -->
   <p id="loveMessage">
@@ -112,26 +112,16 @@
     images.forEach(img => createFloatingItem(img, true));
     hearts.forEach(h => createFloatingItem(h, false));
 
-    // เล่นเพลงทันทีด้วย Web Audio API
-    window.addEventListener('DOMContentLoaded', () => {
-      const audio = document.getElementById('bgMusic');
+    // เล่นเพลงหลัง user คลิกหน้าเว็บครั้งแรก
+    const audio = document.getElementById("bgMusic");
+    const startMusic = () => {
+      audio.muted = false;
+      audio.volume = 0.5;
+      audio.play().catch(e => console.log("เพลงเล่นไม่ได้:", e));
+      document.body.removeEventListener('click', startMusic);
+    };
 
-      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      const track = audioCtx.createMediaElementSource(audio);
-      track.connect(audioCtx.destination);
-
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume().then(() => {
-          audio.muted = false;
-          audio.volume = 0.5;
-          audio.play().catch(e => console.log("Autoplay ถูกบล็อก:", e));
-        });
-      } else {
-        audio.muted = false;
-        audio.volume = 0.5;
-        audio.play().catch(e => console.log("Autoplay ถูกบล็อก:", e));
-      }
-    });
+    document.body.addEventListener('click', startMusic);
   </script>
 </body>
 </html>
