@@ -27,7 +27,14 @@
         bottom: 0;
         width: 120px;
         border-radius: 20px;
-        animation: floatUp 6s infinite;
+        animation-name: floatUp;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+
+      @keyframes floatUp {
+        0%   { transform: translateY(0) scale(0.8); opacity: 1; }
+        100% { transform: translateY(-600px) scale(1.2); opacity: 0; }
       }
 
       /* อีโมจิลอยขึ้น */
@@ -38,30 +45,48 @@
         animation: floatUp 5s infinite;
       }
 
-      @keyframes floatUp {
-        0%   { transform: translateY(0) scale(0.8); opacity: 1; }
-        100% { transform: translateY(-600px) scale(1.2); opacity: 0; }
+      /* คลิปวิดีโอ */
+      #surpriseVideo {
+        display: none;
+        margin-top: 100px;
+        border: 5px solid white;
+        border-radius: 20px;
+        box-shadow: 0 0 30px red;
       }
     </style>
   </head>
   <body>
     <h1>💖 Forever With You 💖</h1>
 
-    <!-- รูปของหนูกับแฟน (เพิ่ม animation-delay ไม่ให้ซ้อนกัน) -->
-<img src="WIN_20250823_00_47_30_Pro.jpg" class="float-photo" style="left:40%; animation-delay:0s;">
-<img src="IMG_20250916_215741_611.webp" class="float-photo" style="left:60%; animation-delay:2s;">
-<img src="IMG_20250901_123521_660.webp" class="float-photo" style="left:30%; animation-delay:4s;">
-<img src="IMG_20250826_195857_461.webp" class="float-photo" style="left:70%; animation-delay:6s;">
-<img src="IMG20250908222630.webp" class="float-photo" style="left:35%; animation-delay:8s;">
-<img src="IMG20250908222556.webp" class="float-photo" style="left:65%; animation-delay:10s;">
-<img src="IMG20250907142012.webp" class="float-photo" style="left:25%; animation-delay:12s;">
-<img src="IMG20250903161723.webp" class="float-photo" style="left:75%; animation-delay:14s;">
-
+    <!-- รูปของหนูกับแฟน (animation-delay และ left ไม่ซ้ำกัน) -->
+    <img src="WIN_20250823_00_47_30_Pro.jpg" class="float-photo" style="left:10%; animation-delay:0s; animation-duration:6s;">
+    <img src="IMG_20250916_215741_611.webp" class="float-photo" style="left:25%; animation-delay:2s; animation-duration:7s;">
+    <img src="IMG_20250901_123521_660.webp" class="float-photo" style="left:40%; animation-delay:4s; animation-duration:6.5s;">
+    <img src="IMG_20250826_195857_461.webp" class="float-photo" style="left:55%; animation-delay:1s; animation-duration:7.5s;">
+    <img src="IMG20250908222630.webp" class="float-photo" style="left:70%; animation-delay:3s; animation-duration:6.2s;">
+    <img src="IMG20250908222556.webp" class="float-photo" style="left:85%; animation-delay:5s; animation-duration:7.1s;">
+    <img src="IMG20250907142012.webp" class="float-photo" style="left:20%; animation-delay:6s; animation-duration:6.8s;">
+    <img src="IMG20250903161723.webp" class="float-photo" style="left:75%; animation-delay:8s; animation-duration:7.3s;">
 
     <!-- อีโมจิหัวใจ -->
-    <div class="float-heart" style="left:30%; animation-delay:1s;">❤️</div>
-    <div class="float-heart" style="left:50%; animation-delay:2s;">💖</div>
-    <div class="float-heart" style="left:70%; animation-delay:4s;">💕</div>
-    <div class="float-heart" style="left:45%; animation-delay:5s;">💘</div>
+    <div class="float-heart" style="left:15%; animation-delay:1s;">❤️</div>
+    <div class="float-heart" style="left:35%; animation-delay:2s;">💖</div>
+    <div class="float-heart" style="left:55%; animation-delay:3s;">💕</div>
+    <div class="float-heart" style="left:75%; animation-delay:4s;">💘</div>
+
+    <!-- คลิปวิดีโอ (ขึ้นหลัง 10 วินาที) -->
+    <video id="surpriseVideo" width="480" controls>
+      <source src="myvideo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <script>
+      // รอ 10 วิ แล้วโชว์วิดีโอ + เล่นเสียง
+      setTimeout(() => {
+        const vid = document.getElementById("surpriseVideo");
+        vid.style.display = "block";
+        vid.play();
+      }, 10000);
+    </script>
   </body>
 </html>
