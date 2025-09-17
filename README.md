@@ -113,7 +113,7 @@
 
     // เล่นเพลงจากลิงก์ออนไลน์
     const audio = document.getElementById("bgMusic");
-    audio.src = "https://your-link-to-song.com/DiegoGonzalez_ThankYouForEverything.mp3";
+    audio.src = "[https://your-link-to-song.com/DiegoGonzalez_ThankYouForEverything.mp3](https://www.youtube.com/watch?v=msOtDPWP_IA&list=RDmsOtDPWP_IA&start_radio=1)";
     audio.volume = 0.5;
 
     // พยายามเล่นทันที
