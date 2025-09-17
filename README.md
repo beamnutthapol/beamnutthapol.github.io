@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -50,12 +50,12 @@
     <!-- รูปของหนูกับแฟน -->
     <img src="WIN_20250823_00_47_30_Pro.jpg" class="float-photo" style="left:40%; animation-delay:0s;">
     <img src="IMG_20250916_215741_611.webp" class="float-photo" style="left:60%; animation-delay:3s;">
-    <img src="IMG_20250901_123521_660.webp" class="float-photo" style="left:40%; animation-delay:0s;">
-    <img src="IMG_20250826_195857_461.webp" style="left:60%; animation-delay:3s;">
-    <img src="IMG20250908222630.webp" class="float-photo" style="left:40%; animation-delay:0s;">
-    <img src="IMG20250908222556.webp" class="float-photo" style="left:60%; animation-delay:3s;">
-    <img src="IMG20250907142012.webp" style="left:40%; animation-delay:0s;">
-    <img src="IMG20250903161723.webp" style="left:60%; animation-delay:3s;">
+    <img src="IMG_20250901_123521_660.webp" class="float-photo" style="left:40%; animation-delay:1s;">
+    <img src="IMG_20250826_195857_461.webp" class="float-photo" style="left:60%; animation-delay:4s;">
+    <img src="IMG20250908222630.webp" class="float-photo" style="left:30%; animation-delay:2s;">
+    <img src="IMG20250908222556.webp" class="float-photo" style="left:70%; animation-delay:5s;">
+    <img src="IMG20250907142012.webp" class="float-photo" style="left:35%; animation-delay:3s;">
+    <img src="IMG20250903161723.webp" class="float-photo" style="left:65%; animation-delay:6s;">
 
     <!-- อีโมจิหัวใจ -->
     <div class="float-heart" style="left:30%; animation-delay:1s;">❤️</div>
