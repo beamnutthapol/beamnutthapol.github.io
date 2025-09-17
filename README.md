@@ -52,7 +52,8 @@
   <h1>💖 Forever With You 💖</h1>
 
   <!-- เพลง background -->
-  <audio id="bgMusic" src="ThankYouForEverything.mp3" autoplay loop></audio>
+<audio id="bgMusic" src="Diego Gonzalez Thank You For Everything Official Lyric Video.mp3" autoplay loop></audio>
+
 
   <!-- คลิปวิดีโอ -->
   <video id="surpriseVideo" width="480" controls autoplay muted>
