@@ -21,14 +21,16 @@
     }
 
     p#loveMessage {
-      font-size: 24px;
-      color: white;
-      text-shadow: 1px 1px 3px red;
-      margin-top: 40px;
-      max-width: 800px;
+      font-size: 20px;        /* เล็กลง */
+      max-width: 600px;       /* ลดความกว้าง */
+      margin-top: 30px;
       margin-left: auto;
       margin-right: auto;
-      line-height: 1.6;
+      line-height: 1.5;       /* ลดบรรทัด */
+      padding: 15px;
+      border-radius: 15px;
+      background-color: rgba(255,255,255,0.2); /* กล่องโปร่งแสง */
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
       opacity: 0;
       animation: fadeIn 3s forwards;
       animation-delay: 10s;
@@ -110,11 +112,12 @@
     images.forEach(img => createFloatingItem(img, true));
     hearts.forEach(h => createFloatingItem(h, false));
 
-    // เพลง
+    // เล่นเพลงจากลิงก์ออนไลน์
     const audio = document.getElementById("bgMusic");
     audio.src = "https://your-link-to-song.com/DiegoGonzalez_ThankYouForEverything.mp3";
     audio.volume = 0.5;
 
+    // พยายามเล่นทันที
     audio.play().catch(() => {
       document.body.addEventListener("click", () => {
         audio.play();
