@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -8,6 +8,7 @@
         background: pink;
         text-align: center;
         font-family: 'Comic Sans MS', cursive, sans-serif;
+        overflow: hidden;
       }
       h1 {
         font-size: 50px;
@@ -19,24 +20,29 @@
         from { text-shadow: 0 0 10px red; }
         to { text-shadow: 0 0 30px yellow; }
       }
-      .heart {
+
+      .float {
         position: fixed;
         bottom: 0;
         left: 50%;
-        font-size: 30px;
-        animation: float 5s infinite;
+        transform: translateX(-50%);
+        width: 120px; /* ขนาดรูป */
+        border-radius: 20px; /* มุมโค้งน่ารัก ๆ */
+        animation: floatUp 6s infinite;
       }
-      @keyframes float {
-        0%   { transform: translateY(0)   scale(1); opacity: 1; }
-        100% { transform: translateY(-500px) scale(1.5); opacity: 0; }
+
+      @keyframes floatUp {
+        0%   { transform: translate(-50%, 0) scale(0.8); opacity: 1; }
+        100% { transform: translate(-50%, -600px) scale(1.2); opacity: 0; }
       }
     </style>
   </head>
   <body>
-    <h1>💖 You are my sunshine 💖</h1>
-    <div class="heart">💖</div>
-    <div class="heart" style="left:40%; animation-delay:1s;">💕</div>
-    <div class="heart" style="left:60%; animation-delay:2s;">💘</div>
-    <div class="heart" style="left:45%; animation-delay:3s;">💓</div>
+    <h1>💖 Forever with You 💖</h1>
+
+    <!-- ใส่รูปของหนูกับแฟน (แทนที่ myphoto.jpg ด้วยไฟล์จริง) -->
+    <img src="myphoto.jpg" class="float" style="animation-delay:0s;">
+    <img src="myphoto.jpg" class="float" style="left:40%; animation-delay:2s;">
+    <img src="myphoto.jpg" class="float" style="left:60%; animation-delay:4s;">
   </body>
 </html>
