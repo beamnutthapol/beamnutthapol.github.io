@@ -48,8 +48,8 @@
     <h1>💖 Forever With You 💖</h1>
 
     <!-- รูปของหนูกับแฟน -->
-    <img src="photo.jpg" class="float-photo" style="left:40%; animation-delay:0s;">
-    <img src="photo.jpg" class="float-photo" style="left:60%; animation-delay:3s;">
+    <img src="WIN_20250823_00_47_30_Pro.jpg" class="float-photo" style="left:40%; animation-delay:0s;">
+    <img src="WIN_20250823_00_47_30_Pro.jpg" class="float-photo" style="left:60%; animation-delay:3s;">
 
     <!-- อีโมจิหัวใจ -->
     <div class="float-heart" style="left:30%; animation-delay:1s;">❤️</div>
