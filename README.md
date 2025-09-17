@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -64,8 +64,8 @@
   </style>
 </head>
 <body>
-  <!-- ชื่อ Beam และหัวใจแทนชื่ออื่น -->
-  <h1> Beam 💖 June </h1>
+  <!-- ชื่อหน้าเว็บ -->
+  <h1>Beam 💖</h1>
 
   <!-- เพลงจากลิงก์ออนไลน์ -->
   <audio id="bgMusic" loop></audio>
@@ -87,12 +87,11 @@
       "IMG20250903161723.webp"
     ];
 
-    // หัวใจลอยรอบชื่อ
+    // หัวใจลอย
     const hearts = ["💖","❤️","💘","💕"];
 
     function createFloatingItem(content, isImage = true) {
       const item = isImage ? document.createElement("img") : document.createElement("div");
-
       if (isImage) {
         item.src = content;
         item.style.width = "120px";
@@ -101,24 +100,21 @@
         item.innerText = content;
         item.style.fontSize = "40px";
       }
-
       item.classList.add("float-item");
       item.style.left = Math.random() * 80 + "%";
       item.style.animationDelay = (Math.random() * 5) + "s";
       item.style.animationDuration = (5 + Math.random() * 3) + "s";
-
       document.body.appendChild(item);
     }
 
     images.forEach(img => createFloatingItem(img, true));
     hearts.forEach(h => createFloatingItem(h, false));
 
-    // เล่นเพลงจากลิงก์ออนไลน์
+    // เพลง
     const audio = document.getElementById("bgMusic");
     audio.src = "https://your-link-to-song.com/DiegoGonzalez_ThankYouForEverything.mp3";
     audio.volume = 0.5;
 
-    // พยายามเล่นทันที
     audio.play().catch(() => {
       document.body.addEventListener("click", () => {
         audio.play();
