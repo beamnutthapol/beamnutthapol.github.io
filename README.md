@@ -9,6 +9,7 @@
       text-align: center;
       font-family: 'Comic Sans MS', cursive, sans-serif;
       overflow: hidden;
+      padding: 20px;
     }
 
     h1 {
@@ -18,9 +19,27 @@
       animation: glow 2s infinite alternate;
     }
 
+    p#loveMessage {
+      font-size: 24px;
+      color: white;
+      text-shadow: 1px 1px 3px red;
+      margin-top: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 3s forwards;
+      animation-delay: 10s; /* ขึ้นหลัง 10 วิ */
+    }
+
     @keyframes glow {
       from { text-shadow: 0 0 10px red; }
       to { text-shadow: 0 0 30px yellow; }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
     .float-item {
@@ -38,14 +57,6 @@
       10%  { opacity: 1; }
       100% { transform: translateY(-600px) scale(1.2); opacity: 0; }
     }
-
-    #surpriseVideo {
-      display: none;
-      margin-top: 50px;
-      border: 5px solid white;
-      border-radius: 20px;
-      box-shadow: 0 0 30px red;
-    }
   </style>
 </head>
 <body>
@@ -54,11 +65,10 @@
   <!-- เพลง background -->
   <audio id="bgMusic" src="Diego%20Gonzalez%20Thank%20You%20For%20Everything%20Official%20Lyric%20Video.mp3" loop muted></audio>
 
-  <!-- คลิปวิดีโอ -->
-  <video id="surpriseVideo" width="480" controls autoplay muted>
-    <source src="VID20250818204341.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <!-- ข้อความแทนวีดีโอ -->
+  <p id="loveMessage">
+    หนูมีโมเมนต์น่ารักๆ ที่ทำให้หัวใจพี่ละลายไม่รู้ลืม… ไม่ว่าจะตอนแกล้งเล่นขำๆ ตอนร้องเพลงด้วยรอยยิ้ม หรือทำอะไรที่หนูรัก ทุกอย่างของหนูช่างน่ารักจนหัวใจพี่เต้นแรงไปหมด… แต่ที่สุดคือเวลาที่หนูอ้อน 🫣 ทำให้โลกทั้งใบเหมือนหยุดหมุน แค่เราอยู่ด้วยกัน แค่ได้คุย ได้หัวเราะ ได้กอดกัน ทุกวินาทีมันพิเศษเกินจะบรรยาย… พี่รักทุกอย่างของหนู รักโมเมนต์เล็กๆ ที่ทำให้หัวใจพี่อบอุ่นที่สุด 💖
+  </p>
 
   <script>
     const images = [
@@ -102,15 +112,7 @@
     images.forEach(img => createFloatingItem(img, true));
     hearts.forEach(h => createFloatingItem(h, false));
 
-    // คลิปโผล่หลัง 10 วิ พร้อมเล่นเสียง
-    setTimeout(() => {
-      const vid = document.getElementById("surpriseVideo");
-      vid.style.display = "block";
-      vid.muted = false; // เปิดเสียง
-      vid.play().catch(e => console.log("Autoplay คลิปถูกบล็อก:", e));
-    }, 10000);
-
-    // เล่นเพลง background แบบ autoplay หลังโหลดหน้า
+    // เล่นเพลง background แบบ autoplay
     window.addEventListener('DOMContentLoaded', () => {
       const music = document.getElementById("bgMusic");
       music.muted = false; // เปิดเสียง
