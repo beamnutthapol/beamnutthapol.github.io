@@ -51,6 +51,9 @@
 <body>
   <h1>💖 Forever With You 💖</h1>
 
+  <!-- เพลง background -->
+  <audio id="bgMusic" src="ThankYouForEverything.mp3" autoplay loop></audio>
+
   <!-- คลิปวิดีโอ -->
   <video id="surpriseVideo" width="480" controls autoplay muted>
     <source src="VID20250818204341.mp4" type="video/mp4">
@@ -106,6 +109,11 @@
       vid.muted = false; // เปิดเสียง
       vid.play().catch(e => console.log("Autoplay ถูกบล็อก:", e));
     }, 10000);
+
+    // เล่นเพลง background อีกครั้งถ้าเบราว์เซอร์บล็อก autoplay
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.5; // ปรับเสียง
+    music.play().catch(e => console.log("Autoplay เพลงถูกบล็อก:", e));
   </script>
 </body>
 </html>
