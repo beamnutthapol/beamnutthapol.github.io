@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -10,7 +10,7 @@
       font-family: 'Comic Sans MS', cursive, sans-serif;
       overflow: hidden;
       padding: 20px;
-      cursor: pointer; /* ให้ user คลิก anywhere */
+      cursor: pointer;
     }
 
     h1 {
@@ -31,7 +31,7 @@
       line-height: 1.6;
       opacity: 0;
       animation: fadeIn 3s forwards;
-      animation-delay: 10s; /* ขึ้นหลัง 10 วิ */
+      animation-delay: 10s;
       position: relative;
       z-index: 1;
     }
@@ -66,8 +66,8 @@
 <body>
   <h1>💖 Forever With You 💖</h1>
 
-  <!-- เพลง background muted เริ่มต้น -->
-  <audio id="bgMusic" src="mylove.mp3" loop muted></audio>
+  <!-- เพลงจากลิงก์ออนไลน์ -->
+  <audio id="bgMusic" loop></audio>
 
   <!-- ข้อความแทนวีดีโอ -->
   <p id="loveMessage">
@@ -108,20 +108,21 @@
       document.body.appendChild(item);
     }
 
-    // สร้างรูปและหัวใจแบบสุ่ม
     images.forEach(img => createFloatingItem(img, true));
     hearts.forEach(h => createFloatingItem(h, false));
 
-    // เล่นเพลงหลัง user คลิกหน้าเว็บครั้งแรก
+    // เล่นเพลงจากลิงก์ออนไลน์
     const audio = document.getElementById("bgMusic");
-    const startMusic = () => {
-      audio.muted = false;
-      audio.volume = 0.5;
-      audio.play().catch(e => console.log("เพลงเล่นไม่ได้:", e));
-      document.body.removeEventListener('click', startMusic);
-    };
+    audio.src = "https://your-link-to-song.com/DiegoGonzalez_ThankYouForEverything.mp3";
+    audio.volume = 0.5;
 
-    document.body.addEventListener('click', startMusic);
+    // พยายามเล่นทันที
+    audio.play().catch(() => {
+      // ถ้า autoplay ถูกบล็อก ให้ user คลิกหน้าเว็บครั้งเดียว
+      document.body.addEventListener("click", () => {
+        audio.play();
+      }, { once: true });
+    });
   </script>
 </body>
 </html>
