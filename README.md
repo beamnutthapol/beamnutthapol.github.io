@@ -10,6 +10,7 @@
       font-family: 'Comic Sans MS', cursive, sans-serif;
       overflow: hidden;
       padding: 20px;
+      cursor: pointer; /* แนะนำให้ user คลิก anywhere */
     }
 
     h1 {
@@ -62,7 +63,7 @@
 <body>
   <h1>💖 Forever With You 💖</h1>
 
-  <!-- เพลง background -->
+  <!-- เพลง background เริ่ม muted -->
   <audio id="bgMusic" src="mylove.mp3" loop muted></audio>
 
   <!-- ข้อความแทนวีดีโอ -->
@@ -97,11 +98,7 @@
       }
 
       item.classList.add("float-item");
-
-      // สุ่มตำแหน่ง horizontal
       item.style.left = Math.random() * 80 + "%";
-
-      // สุ่ม delay และ duration
       item.style.animationDelay = (Math.random() * 5) + "s";
       item.style.animationDuration = (5 + Math.random() * 3) + "s";
 
@@ -112,13 +109,16 @@
     images.forEach(img => createFloatingItem(img, true));
     hearts.forEach(h => createFloatingItem(h, false));
 
-    // เล่นเพลง background แบบ autoplay
-    window.addEventListener('DOMContentLoaded', () => {
-      const music = document.getElementById("bgMusic");
+    // เล่นเพลงหลัง user คลิกครั้งแรก
+    const music = document.getElementById("bgMusic");
+    const startMusic = () => {
       music.muted = false; // เปิดเสียง
       music.volume = 0.5;
       music.play().catch(e => console.log("Autoplay เพลงถูกบล็อก:", e));
-    });
+      document.body.removeEventListener('click', startMusic); // ไม่ต้องเล่นซ้ำ
+    };
+
+    document.body.addEventListener('click', startMusic);
   </script>
 </body>
 </html>
