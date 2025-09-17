@@ -23,39 +23,22 @@
       to { text-shadow: 0 0 30px yellow; }
     }
 
-    /* รูปถ่ายลอยขึ้น */
-    .float-photo {
-      position: fixed;
+    .float-item {
+      position: fixed; /* สำคัญมาก! */
       bottom: 0;
-      width: 120px;
-      border-radius: 20px;
-      opacity: 0; /* เริ่มต้นมองไม่เห็น */
+      opacity: 0;
       animation-name: floatUpAppear;
       animation-iteration-count: infinite;
       animation-timing-function: ease-in-out;
       animation-fill-mode: forwards;
     }
 
-    /* อีโมจิลอยขึ้น */
-    .float-heart {
-      position: fixed;
-      bottom: 0;
-      font-size: 40px;
-      opacity: 0; /* เริ่มต้นมองไม่เห็น */
-      animation-name: floatUpAppear;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-in-out;
-      animation-fill-mode: forwards;
-    }
-
-    /* Animation ให้ลอยขึ้นพร้อมปรากฏ */
     @keyframes floatUpAppear {
       0%   { transform: translateY(0) scale(0.8); opacity: 0; }
       10%  { opacity: 1; }
       100% { transform: translateY(-600px) scale(1.2); opacity: 0; }
     }
 
-    /* คลิปวิดีโอ */
     #surpriseVideo {
       display: none;
       margin-top: 50px;
@@ -68,30 +51,56 @@
 <body>
   <h1>💖 Forever With You 💖</h1>
 
-  <!-- รูปของหนูกับแฟน -->
-  <img src="WIN_20250823_00_47_30_Pro.jpg" class="float-photo" style="left:10%; animation-delay:0s; animation-duration:6s;">
-  <img src="IMG_20250916_215741_611.webp" class="float-photo" style="left:25%; animation-delay:2s; animation-duration:7s;">
-  <img src="IMG_20250901_123521_660.webp" class="float-photo" style="left:40%; animation-delay:4s; animation-duration:6.5s;">
-  <img src="IMG_20250826_195857_461.webp" class="float-photo" style="left:55%; animation-delay:1s; animation-duration:7.5s;">
-  <img src="IMG20250908222630.webp" class="float-photo" style="left:70%; animation-delay:3s; animation-duration:6.2s;">
-  <img src="IMG20250908222556.webp" class="float-photo" style="left:85%; animation-delay:5s; animation-duration:7.1s;">
-  <img src="IMG20250907142012.webp" class="float-photo" style="left:20%; animation-delay:6s; animation-duration:6.8s;">
-  <img src="IMG20250903161723.webp" class="float-photo" style="left:75%; animation-delay:8s; animation-duration:7.3s;">
-
-  <!-- อีโมจิหัวใจ -->
-  <div class="float-heart" style="left:15%; animation-delay:0s;">❤️</div>
-  <div class="float-heart" style="left:35%; animation-delay:1s;">💖</div>
-  <div class="float-heart" style="left:55%; animation-delay:2s;">💕</div>
-  <div class="float-heart" style="left:75%; animation-delay:3s;">💘</div>
-
-  <!-- คลิปวิดีโอ -->
   <video id="surpriseVideo" width="480" controls>
-    <source src="VID20250818204341.mp4" type="video/mp4">
+    <source src="myvideo.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
   <script>
-    // รอ 10 วิ แล้วโชว์วิดีโอ + เล่นเสียง
+    const images = [
+      "WIN_20250823_00_47_30_Pro.jpg",
+      "IMG_20250916_215741_611.webp",
+      "IMG_20250901_123521_660.webp",
+      "IMG_20250826_195857_461.webp",
+      "IMG20250908222630.webp",
+      "IMG20250908222556.webp",
+      "IMG20250907142012.webp",
+      "IMG20250903161723.webp"
+    ];
+
+    const hearts = ["❤️","💖","💕","💘"];
+
+    function createFloatingItem(content, isImage = true) {
+      const item = isImage ? document.createElement("img") : document.createElement("div");
+
+      if (isImage) {
+        item.src = content;
+        item.style.width = "120px";
+        item.style.borderRadius = "20px";
+      } else {
+        item.innerText = content;
+        item.style.fontSize = "40px";
+      }
+
+      item.classList.add("float-item");
+
+      // สุ่มตำแหน่ง horizontal
+      item.style.left = Math.random() * 80 + "%";
+
+      // สุ่ม delay และ duration
+      item.style.animationDelay = (Math.random() * 5) + "s";
+      item.style.animationDuration = (5 + Math.random() * 3) + "s";
+
+      document.body.appendChild(item);
+    }
+
+    // สร้างรูป
+    images.forEach(img => createFloatingItem(img, true));
+
+    // สร้างหัวใจ
+    hearts.forEach(h => createFloatingItem(h, false));
+
+    // คลิปวิดีโอหลัง 10 วิ
     setTimeout(() => {
       const vid = document.getElementById("surpriseVideo");
       vid.style.display = "block";
