@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -67,7 +67,7 @@
 </head>
 <body>
   <!-- ชื่อหน้าเว็บ -->
-  <h1>Beam 💖</h1>
+  <h1>Beam 💖 June</h1>
 
   <!-- เพลงจากลิงก์ออนไลน์ -->
   <audio id="bgMusic" loop></audio>
