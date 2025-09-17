@@ -63,7 +63,7 @@
   <h1>💖 Forever With You 💖</h1>
 
   <!-- เพลง background -->
-  <audio src="mylove.mp3" loop autoplay muted></audio>
+  <audio id="bgMusic" src="mylove.mp3" loop muted></audio>
 
   <!-- ข้อความแทนวีดีโอ -->
   <p id="loveMessage">
