@@ -63,7 +63,7 @@
   <h1>💖 Forever With You 💖</h1>
 
   <!-- เพลง background -->
-  <audio id="bgMusic" src="Diego%20Gonzalez%20Thank%20You%20For%20Everything%20Official%20Lyric%20Video.mp3" loop muted></audio>
+  <audio src="Diego%20Gonzalez%20Thank%20You%20For%20Everything%20Official%20Lyric%20Video.mp3" loop autoplay muted></audio>
 
   <!-- ข้อความแทนวีดีโอ -->
   <p id="loveMessage">
